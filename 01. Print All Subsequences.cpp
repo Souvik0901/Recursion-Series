@@ -1,4 +1,43 @@
 
+Approach 1:   LeetCode 
+             Time Complexity: 0((2^N)*N)
+             Space Complexity: 0((2^N)*N)
+                 
+
+class Solution {
+    
+private:
+void subset(int index, vector<int>&nums, vector<int>&ds, vector<vector<int>>&ans)
+{
+
+    if(index==nums.size())
+    {
+        ans.push_back(ds); 
+        return;
+    }
+
+    subset(index+1, nums, ds, ans);
+    ds.push_back(nums[index]);
+    subset(index+1, nums, ds, ans);
+    ds.pop_back();
+}
+public:
+    vector<vector<int>> subsets(vector<int>& nums) 
+    {
+        vector<vector<int>>ans;
+        vector<int>ds;
+        int index =0;
+        subset(index,nums,ds,ans);
+        
+        return ans;
+    }
+
+};
+
+
+
+
+Approach 2:
 
 #include<bits/stdc++.h>
 using namespace std;
